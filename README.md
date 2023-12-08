@@ -142,6 +142,31 @@ This will return `201 Created` with the current JSON representation of the candi
 }
 ```
 
+Get all candidates
+----------------
+
+* `GET /organizations/:uuid/candidates.json` will return a paginated list of all unarchived candidates.
+
+You can pass a `status` parameter to filter by status (`invited`, `started`, `submitted`, `archived`).
+
+###### Example JSON Response
+```json
+[
+  {
+    "uuid": "a18ab4a2-0983-45d5-b6ea-a4be74e2cd1d",
+    "email": "candidate@example.com",
+    "name": "John Doe",
+    "username": "johndoe",
+    "status": "invited",
+    "created_at": "2017-04-23T00:00:00.000Z",
+    "project": {
+      "uuid": "b5f4b3ea-28df-4475-9ada-dcdb917023d4",
+      "name": "Senior Backend Exercise"
+    }
+  }
+]
+```
+
 Get all reviews
 ----------------
 
