@@ -131,6 +131,9 @@ This will return `201 Created` with the current JSON representation of the candi
 {
   "uuid": "a18ab4a2-0983-45d5-b6ea-a4be74e2cd1d",
   "email": "candidate@example.com",
+  "name": "John Doe",
+  "username": "johndoe",
+  "status": "replicating",
   "created_at": "2017-04-23T00:00:00.000Z",
   "project": {
     "uuid": "b5f4b3ea-28df-4475-9ada-dcdb917023d4",
