@@ -99,11 +99,13 @@ Get all projects
   {
     "uuid": "b5f4b3ea-28df-4475-9ada-dcdb917023d4",
     "name": "Senior Backend Exercise",
+    "status": "active",
     "created_at": "2016-04-24T00:00:00.000Z"
   },
   {
     "uuid": "d03c6ada-bc56-40af-b4de-6f22e8b2f425",
     "name": "Junior Backend Exercise",
+    "status": "active",
     "created_at": "2015-04-12T00:00:00.000Z"
   }
 ]
@@ -127,7 +129,7 @@ This will return `201 Created` with the current JSON representation of the candi
 
 ###### Example JSON Response
 
-``` json
+```json
 {
   "uuid": "a18ab4a2-0983-45d5-b6ea-a4be74e2cd1d",
   "email": "candidate@example.com",
@@ -135,9 +137,16 @@ This will return `201 Created` with the current JSON representation of the candi
   "username": "johndoe",
   "status": "replicating",
   "created_at": "2017-04-23T00:00:00.000Z",
+  "reviews": {
+    "approved_count": 0,
+    "rejected_count": 0,
+    "pending_count": 0
+  },
   "project": {
     "uuid": "b5f4b3ea-28df-4475-9ada-dcdb917023d4",
-    "name": "Senior Backend Exercise"
+    "name": "Senior Backend Exercise",
+    "status": "active",
+    "created_at": "2016-04-24T00:00:00.000Z"
   }
 }
 ```
@@ -159,9 +168,16 @@ You can pass a `status` parameter to filter by status (`invited`, `started`, `su
     "username": "johndoe",
     "status": "invited",
     "created_at": "2017-04-23T00:00:00.000Z",
+    "reviews": {
+      "approved_count": 0,
+      "rejected_count": 0,
+      "pending_count": 0
+    },
     "project": {
       "uuid": "b5f4b3ea-28df-4475-9ada-dcdb917023d4",
-      "name": "Senior Backend Exercise"
+      "name": "Senior Backend Exercise",
+      "status": "active",
+      "created_at": "2016-04-24T00:00:00.000Z"
     }
   }
 ]
@@ -213,13 +229,17 @@ Get all reviews
     "reviewed_at": "2017-05-14T00:00:00.000Z",
     "project": {
       "uuid": "b5f4b3ea-28df-4475-9ada-dcdb917023d4",
-      "name": "Senior Backend Exercise"
+      "name": "Senior Backend Exercise",
+      "status": "active",
+      "created_at": "2016-04-24T00:00:00.000Z"
     },
     "candidate": {
       "uuid": "a18ab4a2-0983-45d5-b6ea-a4be74e2cd1d",
       "email": "candidate@example.com",
       "name": "John Doe",
       "username": "johndoe",
+      "status": "submitted",
+      "created_at": "2017-04-23T00:00:00.000Z",
       "reviews": {
         "approved_count": 1,
         "rejected_count": 0,
