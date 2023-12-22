@@ -91,7 +91,12 @@ Get an organization
 Get all projects
 ----------------
 
-* `GET /organizations/:uuid/projects.json` will return a paginated list of active projects in the organization sorted by most recently created project first.
+* `GET /organizations/:uuid/projects.json` will return a paginated list of projects in the organization sorted by most recently created project first.
+
+_Optional parameters:_
+
+* `limit` - specifies the number of results to return, ranging between 1 and 100 (default 20).
+* `status` - valid values: `active` (default), `archived`.
 
 ###### Example JSON Response
 ```json
@@ -156,7 +161,11 @@ Get all candidates
 
 * `GET /organizations/:uuid/candidates.json` will return a paginated list of all unarchived candidates.
 
-You can pass a `status` parameter to filter by status (`invited`, `started`, `submitted`, `archived`).
+_Optional parameters:_
+
+* `limit` - specifies the number of results to return, ranging between 1 and 100 (default 20).
+* `project_uuid` - filter candidates by active project UUID
+* `status` - valid values: `invited`, `started`, `submitted`, `archived`.
 
 ###### Example JSON Response
 ```json
@@ -215,6 +224,11 @@ Get all reviews
 ----------------
 
 * `GET /organizations/:uuid/reviews.json` will return a paginated list of submitted reviews (accepted/rejected) in the organization sorted by most recently submitted first.
+
+_Optional parameters:_
+
+* `candidate_uuid` - filter reviews by candidate UUID
+* `limit` - specifies the number of results to return, ranging between 1 and 100 (default 20).
 
 ###### Example JSON Response
 ```json
