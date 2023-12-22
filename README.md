@@ -6,12 +6,12 @@ Welcome to the Reviewly API! If you're looking to integrate your application wit
 Making a request
 ----------------
 
-All URLs start with **`https://api.reviewly.dev/00000000-0000-0000-0000-000000000000/`**. URLs are HTTPS only. The path is prefixed with the organization UUID, but no `/api/v1` API prefix. Also, note the different domain!
+All URLs start with **`https://api.reviewly.dev/organizations/00000000-0000-0000-0000-000000000000/`**. URLs are HTTPS only. The path contains the organization UUID, but no `/api/v1` API prefix. Also, note the different domain!
 
-To make a request for all the projects on your account, append the `projects` index path to the base URL to form something like `https://api.reviewly.dev/00000000-0000-0000-0000-000000000000/projects.json`. In cURL, it looks like this:
+To make a request for all the projects on your account, append the `projects` index path to the base URL to form something like `https://api.reviewly.dev/organizations/00000000-0000-0000-0000-000000000000/projects.json`. In cURL, it looks like this:
 
 ``` shell
-curl -H "Authorization: Bearer $API_KEY" -A 'MyApp (yourname@example.com)' https://api.reviewly.dev/00000000-0000-0000-0000-000000000000/projects.json
+curl -H "Authorization: Bearer $API_KEY" -A 'MyApp (yourname@example.com)' https://api.reviewly.dev/organizations/00000000-0000-0000-0000-000000000000/projects.json
 ```
 
 To create something, it's the same idea, but you also have to include the `Content-Type` header and the JSON data:
@@ -21,7 +21,7 @@ curl -H "Authorization: Bearer $API_KEY" \
   -H 'Content-Type: application/json' \
   -A 'User-Agent: MyApp (yourname@example.com)' \
   -d '{ "project_uuid": "b5f4b3ea-28df-4475-9ada-dcdb917023d4", "email": "candidate@example.com" }' \
-  https://api.reviewly.dev/00000000-0000-0000-0000-000000000000/candidates.json
+  https://api.reviewly.dev/organizations/00000000-0000-0000-0000-000000000000/candidates.json
 ```
 
 Authentication
@@ -57,7 +57,7 @@ Most collection APIs paginate their results. The Reviewly API follows the [RFC82
 Here's an example response header from requesting the third page of projects:
 
 ```
-Link: <https://api.reviewly.dev/00000000-0000-0000-0000-000000000000/projects.json?page=4>; rel="next"
+Link: <https://api.reviewly.dev/organizations/00000000-0000-0000-0000-000000000000/projects.json?page=4>; rel="next"
 ```
 
 The Reviewly API also provides the `Total-Count` header, which displays the total number of resources in the collection you are fetching. And also the `Current-Page`, `Page-Items`, and `Total-Pages` headers.
